@@ -1,15 +1,14 @@
 import { createRoot } from 'react-dom/client';
 
+//Import mainview component, which is the parent component, face of website
+import { mainView } from './components/MainView/mainView';
+
 // Import statement to indicate that you need to bundle `./index.scss`
 import "./index.scss";
 
-// Main component (will eventually use all the others)
+// Main component (will eventually use all the others), return mainView
 const MyFlixApplication = () => {
-  return (
-    <div className="my-flix">
-      <div>Good morning</div>
-    </div>
-  );
+  return <mainView />;
 };
 
 // Finds the root of your app
