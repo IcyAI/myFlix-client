@@ -1,41 +1,12 @@
 
-export const movieCard = ({movie}) => {
+export const MovieCard = ({movie, onMovieClick}) => {
 
     return (
-        <div>
+        <div onClick = {() => {
+            onMovieClick(movie);
+        }}>
+
             {movie.Title}
         </div>
     );
-    // return (
-    //     <div>
-    //         <div>
-    //         <img src={movie.Image} />
-    //         </div>
-
-    //         <div>
-    //         <img src={movie.Image} />
-    //         </div>
-
-    //         <div>
-    //         <img src={movie.Image} />
-    //         </div>
-
-    //         <div>
-    //         <img src={movie.Image} />
-    //         </div>
-
-    //         <div>
-    //         <img src={movie.Image} />
-    //         </div>
-
-    //         <div>
-    //         <img src={movie.Image} />
-    //         </div>
-
-    //         <div>
-    //         <img src={movie.Image} />
-    //         </div>
-
-    //     </div>
-    // );
 };
