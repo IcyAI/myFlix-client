@@ -4,12 +4,14 @@ import { MovieCard } from '../MovieCard/movieCard';
 
 import { MovieView } from "../MovieView/movieView";
 
-export const MainView = () => {
-    const [movies, setMovie] = useState([
+import { LoginView } from "../LoginView/logoinView";
 
-    ]);
+export const MainView = () => {
+    const [movies, setMovie] = useState([]);
 
     const [selectedMovie, setSelectMovie] = useState(null);
+
+    const [user,setUser] = useState(null);
 
     useEffect(() => {
         fetch("https://movies-flix50-8c220c6131d7.herokuapp.com/movies")
@@ -35,6 +37,10 @@ export const MainView = () => {
           setMovie(moviesFromApi);
         });
     }, []);
+
+    if (!user) {
+      return <LoginView />;
+    }
 
     if(selectedMovie) {
       return (
