@@ -1,13 +1,12 @@
 import React from "react";
-//import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Container, Navbar, Nav, Form, Row, Col } from "react-bootstrap";
-//import { Routes, Route } from "react-router-dom";
 
 export const NavigationBar = ({ user, onLoggedOut }) => {
 
+  //nav bar
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar className="mb-4" bg="light" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">
           MyFlix
