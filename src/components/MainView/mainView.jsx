@@ -14,22 +14,20 @@ import { ProfileView } from "../profile-view/profile-view";
 
 import Row from "react-bootstrap/Row";
 
-//import Button from "react-bootstrap/Button";
-
 import Col from "react-bootstrap/Col";
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
+//export mainview
 export const MainView = () => {
   const [movies, setMovie] = useState([]);
-
-  //const [selectedMovie, setSelectMovie] = useState(null);
 
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
 
+  //add books
   useEffect(() => {
     if (!token) {
       return;
@@ -61,7 +59,7 @@ export const MainView = () => {
       });
   }, [token]);
 
-
+  //add favorite movies
   const addFav = (id) => {
 
     fetch(`https://movies-flix50-8c220c6131d7.herokuapp.com/users/${user.Username}/movies/${id}`, {
@@ -157,6 +155,7 @@ export const MainView = () => {
               </>
             }
           />
+
           <Route
             path="/profile"
             element={

@@ -2,47 +2,23 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-// import { BookmarkHeart, BookmarkHeartFill } from "react-bootstrap-icons";
-// export const MovieCard = ({movie, onMovieClick}) => {
-
-//     return (
-//         <Card className="h-100">
-//             <Card.Img variant="top" src={movie.image} />
-//             <Card.Body>
-//                 <Card.Title> {movie.title} </Card.Title>
-//                 <Card.Text> {movie.author} </Card.Text>
-//                 <Button onClick={() => onMovieClick(movie)} variant="link"> open</Button>
-//             </Card.Body>
-//         </Card>
-//     );
-// };
-
-
-// MovieCard.PropTypes = {
-//     movie: PropTypes.shape({
-//         title: PropTypes.string.isRequired,
-//         description: PropTypes.string.isRequired,
-//         genreName: PropTypes.string.isRequired,
-//         directorName: PropTypes.string.isRequired,
-//     }).isRequired,
-//     onMovieClick: PropTypes.func.isRequired
-// };
 
 export const MovieCard = ({ movie, addFav, removeFav, isFavorite }) => {
 
     const user = JSON.parse(localStorage.getItem('user'));
 
+    //movie card
     return (
         <Card className="h-100">
             <Card.Img variant="top" src={movie.image} />
             <Card.Body>
                 <Card.Title> {movie.title} </Card.Title>
-                <Card.Text> {movie.directorName} </Card.Text>
+                <Card.Text className="mb-0"> {movie.directorName} </Card.Text>
                 <Link to={`/movies/${encodeURIComponent(movie.title)}`}>
-                    <Button variant="link"> open</Button>
+                    <Button className="mb-4" variant="link"> open</Button>
                 </Link>
 
-                <div>
+                <div className="justify-content-center d-flex">
                     {user.FavoriteMovies.includes(movie.id) ? (
                         <Button on onClick={() => removeFav(movie.id)}>Remove from Favorite</Button>
                     ) : (
@@ -55,7 +31,7 @@ export const MovieCard = ({ movie, addFav, removeFav, isFavorite }) => {
     );
 };
 
-
+//proptypes
 MovieCard.PropTypes = {
     movie: PropTypes.shape({
         title: PropTypes.string.isRequired,

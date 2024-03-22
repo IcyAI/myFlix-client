@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Col, Row, Container } from "react-bootstrap";
 import { Button, Card, Form } from "react-bootstrap";
-//import { FavoriteMovies } from "./favorite-movies";
 import { MovieCard } from "../MovieCard/movieCard";
 
 export const ProfileView = ({ user, movies, setUser, removeFav, addFav }) => {
@@ -19,8 +18,7 @@ export const ProfileView = ({ user, movies, setUser, removeFav, addFav }) => {
 
     const token = localStorage.getItem('token');
 
-    //let userFavMovies = movies.filter((movie)) => user.FavoriteMovies.includes(movie._id);
-
+    //update user
     const handleUpdate = (event) => {
         event.preventDefault();
 
@@ -74,11 +72,12 @@ export const ProfileView = ({ user, movies, setUser, removeFav, addFav }) => {
         })
     }
 
+    //update user form/List of Favorite movies
     return (
         <Container className="my-5">
             <Row>
                 <Col md={5}>
-                    <Card>
+                    <Card className="mt-5">
                         <Card.Body>
                             <Card.Title>My Profile</Card.Title>
                             <Card.Text>Username: {user.Username}</Card.Text>
@@ -126,13 +125,15 @@ export const ProfileView = ({ user, movies, setUser, removeFav, addFav }) => {
                                 placeholder={user.Birthday}
                             />
                         </Form.Group>
-                        <Button type="submit" onClick={handleUpdate} className="mt-2">Update</Button>
-                        <Button onClick={handleDelete} className="mt-3 bg-danger border-danger text-white">Delete User</Button>
+
+                        <Button type="submit" onClick={handleUpdate} className="mt-3">Update</Button>
+                        <Button onClick={handleDelete} className="mt-3 bg-danger border-danger text-white justify-content-center">Delete User</Button>
                     </Form>
                 </Col>
             </Row>
+
             <Row className="justify-content-center">
-                <h2 >Favorite Movies</h2>
+                <h2 className="justify-content-center d-flex mt-5">Favorite Movies</h2>
                 <Row className="justify-content-center">
                     {
                         favoriteMovieList?.length !== 0 ?
@@ -147,7 +148,7 @@ export const ProfileView = ({ user, movies, setUser, removeFav, addFav }) => {
                                 </Col>
                             ))
                             : <Col>
-                                <p>There are no favorites Movies</p>
+                                <p className="justify-content-center d-flex">There are no favorites Movies</p>
                             </Col>
                     }
                 </Row>

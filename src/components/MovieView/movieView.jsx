@@ -3,7 +3,6 @@ import Button from "react-bootstrap/Button";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { Col, Row } from "react-bootstrap";
-//import { MovieCard } from "../movie-card/movie-card";
 
 export const MovieView = ({ movies, removeFav, addFav }) => {
 
@@ -12,74 +11,73 @@ export const MovieView = ({ movies, removeFav, addFav }) => {
     const movie = movies.find((m) => m.title === movieTitle);
 
     const user = JSON.parse(localStorage.getItem('user'));
-    // console.log(movie);
-    // console.log(user);
 
+    //movie view
     return (
 
         <Row className="my-5 justify-content-md-center">
 
             <Col md={5}>
 
-                <div>
+                <Col>
                     <img src={movie.image} />
-                </div>
+                </Col>
 
-                <div>
-                    <span>Title:</span>
+                <Col>
+                    <span class="spanOne"> Title:</span>
                     <span>{movie.title}</span>
-                </div>
+                </Col>
 
-                <div>
-                    <span>Description:</span>
+                <Col>
+                    <span class="spanOne">Description:</span>
                     <span>{movie.description}</span>
-                </div>
+                </Col>
 
-                <div>
-                    <span>Genre</span>
-                </div>
+                <Col className="justify-content-center d-flex">
+                    <span class="spanOne" >Genre</span>
+                </Col>
 
-                <div>
-                    <span>Name:</span>
+                <Col>
+                    <span class="spanOne" >Name: </span>
                     <span>{movie.genreName}</span>
-                </div>
+                </Col>
 
-                <div>
-                    <span>Description:</span>
+                <Col>
+                    <span class="spanOne" >Description: </span>
                     <span>{movie.genreDescription}</span>
-                </div>
+                </Col>
 
-                <div>
-                    <span>Director</span>
-                </div>
+                <Col className="justify-content-center d-flex">
+                    <span class="spanOne" >Director</span>
+                </Col>
 
-                <div>
-                    <span>Name:</span>
+                <Col>
+                    <span class="spanOne" >Name: </span>
                     <span>{movie.directorName}</span>
-                </div>
+                </Col>
 
-                <div>
-                    <span>Bio:</span>
+                <Col>
+                    <span class="spanOne"> Bio: </span>
                     <span>{movie.directorBio}</span>
-                </div>
+                </Col>
 
-                <div>
-                    <span>Birth:</span>
+                <Col>
+                    <span class="spanOne" >Birth: </span>
                     <span>{movie.directorBirth}</span>
-                </div>
+                </Col>
 
-                <div>
-                    <span>Death:</span>
+                <Col>
+                    <span class="spanOne" >Death: </span>
                     <span>{movie.directorDeath}</span>
-                </div>
+                </Col>
 
-                <div>
+                <Col className="justify-content-end d-flex">
                     {user.FavoriteMovies.includes(movie.id) ? (
                         <Button on onClick={() => removeFav(movie.id)}>Remove from Favorite</Button>
                     ) : (
                         <Button onClick={() => addFav(movie.id)}>Add to Favorite</Button>
                     )}
-                </div>
+                </Col>
 
                 <Link to="/">
                     <Button variant="primary">Back</Button>

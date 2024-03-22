@@ -3,12 +3,14 @@ $body-bg: rgb(192, 192, 230);
 
 @import '~bootstrap/scss/bootstrap.scss';
 
-$color: steelblue;
-
-.my-flix {
-  color: $color;
-}
-
 img {
   width: 100%
+}
+
+span {
+  margin-right: 3px;
+}
+
+.spanOne {
+  font-weight: bold;
 }
